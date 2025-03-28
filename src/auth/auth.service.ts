@@ -1,15 +1,57 @@
-import { Injectable, UnauthorizedException } from '@nestjs/common';
+import { Injectable, UnauthorizedException, ConflictException, BadRequestException } from '@nestjs/common';
 import { JwtService } from '@nestjs/jwt';
 import * as bcrypt from 'bcrypt';
-import { UsersService } from '../users/users.service';
+// DTOs
 import { LoginDto } from './dto/login.dto';
+import { CreateUserDto } from './dto/create-user.dto';
+// Entities
+import { User } from './entities/user.entity';
+// TypeORM
+import { Repository } from 'typeorm';
+import { InjectRepository } from '@nestjs/typeorm';
 
 @Injectable()
 export class AuthService {
   constructor(
-    private usersService: UsersService,
+    @InjectRepository(User) private authRepository: Repository<User>,
     private jwtService: JwtService,
   ) {}
+
+  async create(createUserDto: CreateUserDto): Promise<Omit<User, 'password'>> {
+    // Check if user already exists
+    const existingUser = await this.authRepository.findOne({
+      where: [
+        { email: createUserDto.email },
+        { username: createUserDto.username },
+      ],
+    });
+
+    if (existingUser) {
+      throw new ConflictException(
+        'User with this email or username already exists',
+      );
+    }
+
+    try {
+      // Hash the password
+      const hashedPassword = await bcrypt.hash(createUserDto.password, 10);
+
+      // Create new user
+      const user = this.authRepository.create({
+        ...createUserDto,
+        password: hashedPassword,
+      });
+
+      // Save the user to the database
+      const savedUser = await this.authRepository.save(user);
+      
+      // Return user without password
+      const { password, ...result } = savedUser;
+      return result;
+    } catch (error) {
+      throw new BadRequestException('Failed to create user');
+    }
+  }
 
   async login(loginDto: LoginDto) {
     const user = await this.validateUser(loginDto.email, loginDto.password);
@@ -31,7 +73,7 @@ export class AuthService {
   }
 
   async validateUser(email: string, password: string): Promise<any> {
-    const user = await this.usersService.findByEmail(email);
+    const user = await this.authRepository.findOne({ where: { email } });
     
     if (!user) {
       throw new UnauthorizedException('Invalid credentials');

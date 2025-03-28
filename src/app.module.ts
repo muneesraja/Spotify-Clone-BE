@@ -3,9 +3,16 @@ import { ConfigModule, ConfigService } from '@nestjs/config';
 import { TypeOrmModule } from '@nestjs/typeorm';
 import { AppController } from './app.controller';
 import { AppService } from './app.service';
-import { UsersModule } from './users/users.module';
 import { AuthModule } from './auth/auth.module';
-import { User } from './users/entities/user.entity';
+import { User } from './auth/entities/user.entity';
+import { AlbumsModule } from './albums/albums.module';
+import { ArtistsModule } from './artists/artists.module';
+import { SongsModule } from './songs/songs.module';
+import { LikedSongsModule } from './liked-songs/liked-songs.module';
+import { Album } from './albums/entities/album.entity';
+import { Artist } from './artists/entities/artist.entity';
+import { Song } from './songs/entities/song.entity';
+import { LikedSong } from './liked-songs/entities/liked-song.entity';
 
 @Module({
   imports: [
@@ -18,12 +25,15 @@ import { User } from './users/entities/user.entity';
       useFactory: (configService: ConfigService) => ({
         type: 'postgres',
         url: configService.get('DATABASE_URL'),
-        entities: [User],
+        entities: [User, Album, Artist, Song, LikedSong],
         synchronize: true, // Set to false in production
       }),
     }),
-    UsersModule,
     AuthModule,
+    AlbumsModule,
+    ArtistsModule,
+    SongsModule,
+    LikedSongsModule,
   ],
   controllers: [AppController],
   providers: [AppService],

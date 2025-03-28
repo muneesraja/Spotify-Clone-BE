@@ -1,8 +1,8 @@
 {
-  "name": "back-end",
-  "version": "0.0.1",
-  "description": "",
-  "author": "",
+  "name": "spotify-clone-api",
+  "version": "1.0.0",
+  "description": "A NestJS backend API for a Spotify-like music streaming application",
+  "author": "Nidana",
   "private": true,
   "license": "UNLICENSED",
   "scripts": {
@@ -17,13 +17,16 @@
     "test:watch": "jest --watch",
     "test:cov": "jest --coverage",
     "test:debug": "node --inspect-brk -r tsconfig-paths/register -r ts-node/register node_modules/.bin/jest --runInBand",
-    "test:e2e": "jest --config ./test/jest-e2e.json"
+    "test:e2e": "jest --config ./test/jest-e2e.json",
+    "seed": "ts-node -r tsconfig-paths/register src/database/seeder.ts",
+    "test:dto": "jest --config ./test/jest-dto.json"
   },
   "dependencies": {
     "@nestjs/common": "^11.0.1",
     "@nestjs/config": "^4.0.2",
     "@nestjs/core": "^11.0.1",
     "@nestjs/jwt": "^11.0.0",
+    "@nestjs/mapped-types": "^2.1.0",
     "@nestjs/passport": "^11.0.5",
     "@nestjs/platform-express": "^11.0.1",
     "@nestjs/typeorm": "^11.0.0",
