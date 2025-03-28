@@ -94,7 +94,7 @@ The API includes comprehensive error handling:
 
 Protected routes require a JWT token. To access these routes:
 
-1. Create a user with `POST /users`
+1. Create a user with `POST /auth/register`
 2. Login with `POST /auth/login`
 3. Use the returned token in the Authorization header:
    `Authorization: Bearer your_token_here`

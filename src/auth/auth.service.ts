@@ -16,8 +16,8 @@ export class AuthService {
     @InjectRepository(User) private authRepository: Repository<User>,
     private jwtService: JwtService,
   ) {}
-
-  async create(createUserDto: CreateUserDto): Promise<Omit<User, 'password'>> {
+// We need to implement JWT to while creating the user similar to login
+  async create(createUserDto: CreateUserDto): Promise<{ user: Omit<User, 'password'>, access_token: string }> {
     // Check if user already exists
     const existingUser = await this.authRepository.findOne({
       where: [
@@ -47,7 +47,13 @@ export class AuthService {
       
       // Return user without password
       const { password, ...result } = savedUser;
-      return result;
+
+      const payload = {
+        sub: result.id,
+        email: result.email,
+        username: result.username,
+      };
+      return { user: result, access_token: this.jwtService.sign(payload) };
     } catch (error) {
       throw new BadRequestException('Failed to create user');
     }

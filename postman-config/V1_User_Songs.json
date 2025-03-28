@@ -40,6 +40,19 @@
               "raw": "{\n    \"email\": \"test@example.com\",\n    \"password\": \"password123\"\n}"
             }
           }
+        },
+        {
+          "name": "Get User Profile",
+          "request": {
+            "method": "GET",
+            "url": "{{URL}}/auth/user",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "Bearer {{jwt_token}}"
+              }
+            ]
+          }
         }
       ]
     },
