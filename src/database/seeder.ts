@@ -3,6 +3,7 @@ import { AppModule } from '../app.module';
 import { DataSource } from 'typeorm';
 import { seedAlbums } from './seeds/album.seed';
 import { seedSongs } from './seeds/song.seed';
+import { seedAlbumDatabase } from './seeds/album_db.seed';
 
 async function bootstrap() {
   const app = await NestFactory.create(AppModule);
@@ -11,7 +12,12 @@ async function bootstrap() {
   console.log('Starting database seeding...');
   
   try {
-    // Run all seed functions
+    // First seed from external JS files
+    console.log('=== Seeding from external JS files ===');
+    await seedAlbumDatabase(dataSource);
+
+    // Then run the built-in seed functions
+    console.log('\n=== Seeding from built-in data ===');
     await seedAlbums(dataSource);
     await seedSongs(dataSource);
     

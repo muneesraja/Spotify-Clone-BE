@@ -1,15 +1,24 @@
-import { IsNotEmpty, IsOptional, IsString } from 'class-validator';
+import { IsString, IsNotEmpty, IsOptional, IsBoolean, IsUrl } from 'class-validator';
+import { ApiProperty } from '@nestjs/swagger';
 
 export class CreateArtistDto {
+  @ApiProperty({ description: 'The name of the artist', example: 'Ed Sheeran' })
   @IsString()
   @IsNotEmpty()
   name: string;
 
-  @IsString()
+  @ApiProperty({ description: 'The URL of the artist\'s profile image', example: 'https://example.com/images/ed-sheeran.jpg' })
+  @IsUrl()
   @IsNotEmpty()
   imageUrl: string;
 
+  @ApiProperty({ description: 'A brief description of the artist', example: 'English singer-songwriter', required: false })
   @IsString()
   @IsOptional()
   description?: string;
+
+  @ApiProperty({ description: 'Whether the artist is featured', default: false, required: false })
+  @IsBoolean()
+  @IsOptional()
+  isFeatured?: boolean;
 } 

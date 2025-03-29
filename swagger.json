@@ -1,0 +1,1145 @@
+{
+  "openapi": "3.0.0",
+  "paths": {
+    "/": {
+      "get": {
+        "operationId": "AppController_getHello",
+        "parameters": [],
+        "responses": {
+          "200": {
+            "description": ""
+          }
+        },
+        "tags": [
+          "App"
+        ]
+      }
+    },
+    "/auth/login": {
+      "post": {
+        "operationId": "AuthController_login",
+        "parameters": [],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/LoginDto"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Return JWT access token.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "access_token": {
+                      "type": "string"
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Invalid credentials."
+          }
+        },
+        "summary": "Login with email and password",
+        "tags": [
+          "Authentication"
+        ]
+      }
+    },
+    "/auth/register": {
+      "post": {
+        "operationId": "AuthController_register",
+        "parameters": [],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/CreateUserDto"
+              }
+            }
+          }
+        },
+        "responses": {
+          "201": {
+            "description": "The user has been successfully created.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/User"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Email already exists."
+          }
+        },
+        "summary": "Register a new user",
+        "tags": [
+          "Authentication"
+        ]
+      }
+    },
+    "/auth/user/profile": {
+      "get": {
+        "operationId": "AuthController_getMe",
+        "parameters": [],
+        "responses": {
+          "200": {
+            "description": "Return the user profile.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/User"
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Unauthorized."
+          }
+        },
+        "security": [
+          {
+            "bearer": []
+          }
+        ],
+        "summary": "Get current user profile",
+        "tags": [
+          "Authentication"
+        ]
+      }
+    },
+    "/auth/logout": {
+      "post": {
+        "operationId": "AuthController_logout",
+        "parameters": [],
+        "responses": {
+          "200": {
+            "description": ""
+          }
+        },
+        "tags": [
+          "Authentication"
+        ]
+      }
+    },
+    "/albums": {
+      "post": {
+        "operationId": "AlbumsController_create",
+        "parameters": [],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/CreateAlbumDto"
+              }
+            }
+          }
+        },
+        "responses": {
+          "201": {
+            "description": "The album has been successfully created.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Album"
+                }
+              }
+            }
+          }
+        },
+        "security": [
+          {
+            "bearer": []
+          }
+        ],
+        "summary": "Create a new album",
+        "tags": [
+          "Albums"
+        ]
+      },
+      "get": {
+        "operationId": "AlbumsController_findAll",
+        "parameters": [],
+        "responses": {
+          "200": {
+            "description": "Return all albums.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/Album"
+                  }
+                }
+              }
+            }
+          }
+        },
+        "summary": "Get all albums",
+        "tags": [
+          "Albums"
+        ]
+      }
+    },
+    "/albums/featured": {
+      "get": {
+        "operationId": "AlbumsController_findFeatured",
+        "parameters": [],
+        "responses": {
+          "200": {
+            "description": "Return featured albums.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/Album"
+                  }
+                }
+              }
+            }
+          }
+        },
+        "summary": "Get featured albums",
+        "tags": [
+          "Albums"
+        ]
+      }
+    },
+    "/albums/{id}": {
+      "get": {
+        "operationId": "AlbumsController_findOne",
+        "parameters": [
+          {
+            "name": "id",
+            "required": true,
+            "in": "path",
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Return the album.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Album"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Album not found."
+          }
+        },
+        "summary": "Get an album by id",
+        "tags": [
+          "Albums"
+        ]
+      }
+    },
+    "/artists": {
+      "post": {
+        "operationId": "ArtistsController_create",
+        "parameters": [],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/CreateArtistDto"
+              }
+            }
+          }
+        },
+        "responses": {
+          "201": {
+            "description": "The artist has been successfully created.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Artist"
+                }
+              }
+            }
+          }
+        },
+        "security": [
+          {
+            "bearer": []
+          }
+        ],
+        "summary": "Create a new artist",
+        "tags": [
+          "Artists"
+        ]
+      },
+      "get": {
+        "operationId": "ArtistsController_findAll",
+        "parameters": [],
+        "responses": {
+          "200": {
+            "description": "Return all artists.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/Artist"
+                  }
+                }
+              }
+            }
+          }
+        },
+        "summary": "Get all artists",
+        "tags": [
+          "Artists"
+        ]
+      }
+    },
+    "/artists/featured": {
+      "get": {
+        "operationId": "ArtistsController_findFeatured",
+        "parameters": [],
+        "responses": {
+          "200": {
+            "description": "Return featured artists.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/Artist"
+                  }
+                }
+              }
+            }
+          }
+        },
+        "summary": "Get featured artists",
+        "tags": [
+          "Artists"
+        ]
+      }
+    },
+    "/artists/{id}": {
+      "get": {
+        "operationId": "ArtistsController_findOne",
+        "parameters": [
+          {
+            "name": "id",
+            "required": true,
+            "in": "path",
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Return the artist.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Artist"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Artist not found."
+          }
+        },
+        "summary": "Get an artist by id",
+        "tags": [
+          "Artists"
+        ]
+      }
+    },
+    "/artists/{id}/songs": {
+      "get": {
+        "operationId": "ArtistsController_findSongs",
+        "parameters": [
+          {
+            "name": "id",
+            "required": true,
+            "in": "path",
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Return all songs for an artist.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/Song"
+                  }
+                }
+              }
+            }
+          }
+        },
+        "summary": "Get all songs for an artist",
+        "tags": [
+          "Artists"
+        ]
+      }
+    },
+    "/songs": {
+      "post": {
+        "operationId": "SongsController_create",
+        "parameters": [],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/CreateSongDto"
+              }
+            }
+          }
+        },
+        "responses": {
+          "201": {
+            "description": "The song has been successfully created.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Song"
+                }
+              }
+            }
+          }
+        },
+        "security": [
+          {
+            "bearer": []
+          }
+        ],
+        "summary": "Create a new song",
+        "tags": [
+          "Songs"
+        ]
+      },
+      "get": {
+        "operationId": "SongsController_findAll",
+        "parameters": [],
+        "responses": {
+          "200": {
+            "description": "Return all songs.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/Song"
+                  }
+                }
+              }
+            }
+          }
+        },
+        "summary": "Get all songs",
+        "tags": [
+          "Songs"
+        ]
+      }
+    },
+    "/songs/featured": {
+      "get": {
+        "operationId": "SongsController_findFeatured",
+        "parameters": [],
+        "responses": {
+          "200": {
+            "description": "Return featured songs.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/Song"
+                  }
+                }
+              }
+            }
+          }
+        },
+        "summary": "Get featured songs",
+        "tags": [
+          "Songs"
+        ]
+      }
+    },
+    "/songs/search": {
+      "get": {
+        "operationId": "SongsController_search",
+        "parameters": [
+          {
+            "name": "q",
+            "required": true,
+            "in": "query",
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Return matching songs, albums, and artists.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/SearchResponseDto"
+                }
+              }
+            }
+          }
+        },
+        "summary": "Search across songs, albums, and artists",
+        "tags": [
+          "Songs"
+        ]
+      }
+    },
+    "/songs/{id}": {
+      "get": {
+        "operationId": "SongsController_findOne",
+        "parameters": [
+          {
+            "name": "id",
+            "required": true,
+            "in": "path",
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Return the song.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Song"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Song not found."
+          }
+        },
+        "summary": "Get a song by id",
+        "tags": [
+          "Songs"
+        ]
+      }
+    },
+    "/songs/{id}/like": {
+      "post": {
+        "operationId": "SongsController_likeSong",
+        "parameters": [
+          {
+            "name": "id",
+            "required": true,
+            "in": "path",
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "The song has been liked.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "success": {
+                      "type": "boolean"
+                    },
+                    "message": {
+                      "type": "string"
+                    }
+                  }
+                }
+              }
+            }
+          }
+        },
+        "security": [
+          {
+            "bearer": []
+          }
+        ],
+        "summary": "Like a song",
+        "tags": [
+          "Songs"
+        ]
+      },
+      "delete": {
+        "operationId": "SongsController_unlikeSong",
+        "parameters": [
+          {
+            "name": "id",
+            "required": true,
+            "in": "path",
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "The song has been unliked.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "success": {
+                      "type": "boolean"
+                    },
+                    "message": {
+                      "type": "string"
+                    }
+                  }
+                }
+              }
+            }
+          }
+        },
+        "security": [
+          {
+            "bearer": []
+          }
+        ],
+        "summary": "Unlike a song",
+        "tags": [
+          "Songs"
+        ]
+      }
+    },
+    "/users/me/liked-songs": {
+      "get": {
+        "operationId": "LikedSongsController_getLikedSongs",
+        "parameters": [],
+        "responses": {
+          "200": {
+            "description": "Return the list of liked songs.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/Song"
+                  }
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Unauthorized."
+          }
+        },
+        "security": [
+          {
+            "bearer": []
+          }
+        ],
+        "summary": "Get current user's liked songs",
+        "tags": [
+          "Liked Songs"
+        ]
+      }
+    }
+  },
+  "info": {
+    "title": "Spotify Clone API",
+    "description": "API documentation for the Spotify Clone application",
+    "version": "1.0",
+    "contact": {}
+  },
+  "tags": [],
+  "servers": [],
+  "components": {
+    "securitySchemes": {
+      "bearer": {
+        "scheme": "bearer",
+        "bearerFormat": "JWT",
+        "type": "http"
+      }
+    },
+    "schemas": {
+      "LoginDto": {
+        "type": "object",
+        "properties": {}
+      },
+      "CreateUserDto": {
+        "type": "object",
+        "properties": {
+          "email": {
+            "type": "string",
+            "description": "The email address of the user",
+            "example": "user@example.com"
+          },
+          "username": {
+            "type": "string",
+            "description": "The username of the user",
+            "example": "johndoe"
+          },
+          "password": {
+            "type": "string",
+            "description": "The hashed password of the user",
+            "example": "password123"
+          }
+        },
+        "required": [
+          "email",
+          "username",
+          "password"
+        ]
+      },
+      "User": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "string",
+            "description": "The unique identifier of the user",
+            "example": "123e4567-e89b-12d3-a456-426614174000"
+          },
+          "email": {
+            "type": "string",
+            "description": "The email address of the user",
+            "example": "user@example.com"
+          },
+          "username": {
+            "type": "string",
+            "description": "The username of the user",
+            "example": "johndoe"
+          },
+          "password": {
+            "type": "string",
+            "description": "The hashed password of the user"
+          },
+          "isActive": {
+            "type": "boolean",
+            "description": "Whether the user account is active",
+            "default": true
+          },
+          "createdAt": {
+            "format": "date-time",
+            "type": "string",
+            "description": "When the user account was created"
+          },
+          "updatedAt": {
+            "format": "date-time",
+            "type": "string",
+            "description": "When the user account was last updated"
+          }
+        },
+        "required": [
+          "id",
+          "email",
+          "username",
+          "password",
+          "isActive",
+          "createdAt",
+          "updatedAt"
+        ]
+      },
+      "CreateAlbumDto": {
+        "type": "object",
+        "properties": {
+          "title": {
+            "type": "string",
+            "description": "The title of the album",
+            "example": "Divide"
+          },
+          "imageUrl": {
+            "type": "string",
+            "description": "The URL of the album cover image",
+            "example": "https://example.com/images/divide.jpg"
+          },
+          "releaseDate": {
+            "type": "string",
+            "description": "The release date of the album",
+            "example": "2023-01-01"
+          },
+          "artistId": {
+            "type": "string",
+            "description": "The ID of the artist who created this album",
+            "example": "123e4567-e89b-12d3-a456-426614174000"
+          },
+          "isFeatured": {
+            "type": "boolean",
+            "description": "Whether the album is featured",
+            "example": false
+          }
+        },
+        "required": [
+          "title",
+          "imageUrl",
+          "releaseDate",
+          "artistId",
+          "isFeatured"
+        ]
+      },
+      "Song": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "string",
+            "description": "The unique identifier of the song",
+            "example": "123e4567-e89b-12d3-a456-426614174000"
+          },
+          "title": {
+            "type": "string",
+            "description": "The title of the song",
+            "example": "Shape of You"
+          },
+          "duration": {
+            "type": "number",
+            "description": "The duration of the song in seconds",
+            "example": 235
+          },
+          "url": {
+            "type": "string",
+            "description": "The URL where the song file is stored",
+            "example": "https://example.com/songs/shape-of-you.mp3"
+          },
+          "imageUrl": {
+            "type": "string",
+            "description": "The URL of the song's cover image",
+            "example": "https://example.com/images/shape-of-you.jpg",
+            "nullable": true
+          },
+          "albumId": {
+            "type": "string",
+            "description": "The ID of the album this song belongs to"
+          },
+          "artistId": {
+            "type": "string",
+            "description": "The ID of the artist who created this song"
+          },
+          "isFeatured": {
+            "type": "boolean",
+            "description": "Whether the song is featured on the platform",
+            "default": false
+          },
+          "releaseDate": {
+            "format": "date-time",
+            "type": "string",
+            "description": "The release date of the song",
+            "example": "2023-01-01"
+          },
+          "createdAt": {
+            "format": "date-time",
+            "type": "string",
+            "description": "When the song was created in the system"
+          },
+          "updatedAt": {
+            "format": "date-time",
+            "type": "string",
+            "description": "When the song was last updated"
+          },
+          "album": {
+            "description": "The album object this song belongs to",
+            "allOf": [
+              {
+                "$ref": "#/components/schemas/Album"
+              }
+            ]
+          },
+          "artist": {
+            "description": "The artist object who created this song",
+            "allOf": [
+              {
+                "$ref": "#/components/schemas/Artist"
+              }
+            ]
+          }
+        },
+        "required": [
+          "id",
+          "title",
+          "duration",
+          "url",
+          "imageUrl",
+          "albumId",
+          "artistId",
+          "isFeatured",
+          "releaseDate",
+          "createdAt",
+          "updatedAt",
+          "album",
+          "artist"
+        ]
+      },
+      "Album": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "string",
+            "description": "The unique identifier of the album",
+            "example": "123e4567-e89b-12d3-a456-426614174000"
+          },
+          "title": {
+            "type": "string",
+            "description": "The title of the album",
+            "example": "Divide"
+          },
+          "imageUrl": {
+            "type": "string",
+            "description": "The URL of the album cover image",
+            "example": "https://example.com/images/divide.jpg"
+          },
+          "releaseDate": {
+            "format": "date-time",
+            "type": "string",
+            "description": "The release date of the album",
+            "example": "2023-01-01"
+          },
+          "artistId": {
+            "type": "string",
+            "description": "The ID of the artist who created this album"
+          },
+          "isFeatured": {
+            "type": "boolean",
+            "description": "Whether the album is featured",
+            "example": false
+          },
+          "createdAt": {
+            "format": "date-time",
+            "type": "string",
+            "description": "When the album was created in the system"
+          },
+          "updatedAt": {
+            "format": "date-time",
+            "type": "string",
+            "description": "When the album was last updated"
+          },
+          "artist": {
+            "description": "The artist who created this album",
+            "allOf": [
+              {
+                "$ref": "#/components/schemas/Artist"
+              }
+            ]
+          },
+          "songs": {
+            "description": "The songs in this album",
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/Song"
+            }
+          }
+        },
+        "required": [
+          "id",
+          "title",
+          "imageUrl",
+          "releaseDate",
+          "artistId",
+          "isFeatured",
+          "createdAt",
+          "updatedAt",
+          "artist",
+          "songs"
+        ]
+      },
+      "Artist": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "string",
+            "description": "The unique identifier of the artist",
+            "example": "123e4567-e89b-12d3-a456-426614174000"
+          },
+          "name": {
+            "type": "string",
+            "description": "The name of the artist",
+            "example": "Ed Sheeran"
+          },
+          "imageUrl": {
+            "type": "string",
+            "description": "The URL of the artist's profile image",
+            "example": "https://example.com/images/ed-sheeran.jpg"
+          },
+          "description": {
+            "type": "string",
+            "description": "A brief description of the artist",
+            "example": "English singer-songwriter",
+            "nullable": true
+          },
+          "isFeatured": {
+            "type": "boolean",
+            "description": "Whether the artist is featured",
+            "example": false
+          },
+          "createdAt": {
+            "format": "date-time",
+            "type": "string",
+            "description": "When the artist was created in the system"
+          },
+          "updatedAt": {
+            "format": "date-time",
+            "type": "string",
+            "description": "When the artist was last updated"
+          },
+          "albums": {
+            "description": "The albums by this artist",
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/Album"
+            }
+          }
+        },
+        "required": [
+          "id",
+          "name",
+          "imageUrl",
+          "description",
+          "isFeatured",
+          "createdAt",
+          "updatedAt",
+          "albums"
+        ]
+      },
+      "CreateArtistDto": {
+        "type": "object",
+        "properties": {
+          "name": {
+            "type": "string",
+            "description": "The name of the artist",
+            "example": "Ed Sheeran"
+          },
+          "imageUrl": {
+            "type": "string",
+            "description": "The URL of the artist's profile image",
+            "example": "https://example.com/images/ed-sheeran.jpg"
+          },
+          "description": {
+            "type": "string",
+            "description": "A brief description of the artist",
+            "example": "English singer-songwriter"
+          },
+          "isFeatured": {
+            "type": "boolean",
+            "description": "Whether the artist is featured",
+            "default": false
+          }
+        },
+        "required": [
+          "name",
+          "imageUrl"
+        ]
+      },
+      "CreateSongDto": {
+        "type": "object",
+        "properties": {
+          "title": {
+            "type": "string",
+            "description": "The title of the song",
+            "example": "Shape of You"
+          },
+          "duration": {
+            "type": "number",
+            "description": "The duration of the song in seconds",
+            "example": 216
+          },
+          "url": {
+            "type": "string",
+            "description": "The URL of the song file",
+            "example": "https://example.com/songs/shape-of-you.mp3"
+          },
+          "imageUrl": {
+            "type": "string",
+            "description": "The URL of the song image",
+            "example": "https://example.com/images/shape-of-you.jpg"
+          },
+          "albumId": {
+            "type": "string",
+            "description": "The ID of the album that the song belongs to",
+            "example": "123e4567-e89b-12d3-a456-426614174000"
+          },
+          "artistId": {
+            "type": "string",
+            "description": "The ID of the artist that created the song",
+            "example": "123e4567-e89b-12d3-a456-426614174000"
+          },
+          "isFeatured": {
+            "type": "boolean",
+            "description": "Whether the song is featured",
+            "example": false
+          },
+          "releaseDate": {
+            "type": "string",
+            "description": "The release date of the song",
+            "example": "2023-01-01"
+          }
+        },
+        "required": [
+          "title",
+          "duration",
+          "url",
+          "imageUrl",
+          "albumId",
+          "artistId",
+          "isFeatured",
+          "releaseDate"
+        ]
+      },
+      "SearchResponseDto": {
+        "type": "object",
+        "properties": {
+          "songs": {
+            "items": {
+              "type": "array"
+            },
+            "type": "array"
+          },
+          "albums": {
+            "items": {
+              "type": "array"
+            },
+            "type": "array"
+          },
+          "artists": {
+            "items": {
+              "type": "array"
+            },
+            "type": "array"
+          }
+        },
+        "required": [
+          "songs",
+          "albums",
+          "artists"
+        ]
+      }
+    }
+  }
+}

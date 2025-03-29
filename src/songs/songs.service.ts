@@ -1,9 +1,13 @@
 import { Injectable, NotFoundException } from '@nestjs/common';
 import { InjectRepository } from '@nestjs/typeorm';
-import { Repository } from 'typeorm';
+import { ILike, Repository } from 'typeorm';
 import { Song } from './entities/song.entity';
 import { CreateSongDto } from './dto/create-song.dto';
 import { LikedSong } from '../liked-songs/entities/liked-song.entity';
+import { Album } from '../albums/entities/album.entity';
+import { Artist } from '../artists/entities/artist.entity';
+import { SearchResponseDto } from './dto/search-response.dto';
+import { ApiResponse } from '@nestjs/swagger';
 
 @Injectable()
 export class SongsService {
@@ -12,6 +16,10 @@ export class SongsService {
     private songsRepository: Repository<Song>,
     @InjectRepository(LikedSong)
     private likedSongsRepository: Repository<LikedSong>,
+    @InjectRepository(Album)
+    private albumsRepository: Repository<Album>,
+    @InjectRepository(Artist)
+    private artistsRepository: Repository<Artist>,
   ) {}
 
   async create(createSongDto: CreateSongDto): Promise<Song> {
@@ -19,9 +27,13 @@ export class SongsService {
     return this.songsRepository.save(song);
   }
 
+  // featured should sort by isFeatured true first
   async findAll(): Promise<Song[]> {
     return this.songsRepository.find({
       relations: ['artist', 'album'],
+      order: {
+        isFeatured: 'DESC',
+      },
     });
   }
 
@@ -42,25 +54,37 @@ export class SongsService {
     return this.songsRepository.find({
       where: { isFeatured: true },
       relations: ['artist', 'album'],
+      order: {
+        isFeatured: 'DESC',
+      },
+      take: 10,
     });
   }
 
-  async search(query: string): Promise<Song[]> {
-    return this.songsRepository
-      .createQueryBuilder('song')
-      .leftJoinAndSelect('song.artist', 'artist')
-      .leftJoinAndSelect('song.album', 'album')
-      .where('LOWER(song.title) LIKE LOWER(:query)', { query: `%${query}%` })
-      .orWhere('LOWER(artist.name) LIKE LOWER(:query)', { query: `%${query}%` })
-      .orWhere('LOWER(album.title) LIKE LOWER(:query)', { query: `%${query}%` })
-      .getMany();
+
+  @ApiResponse({ type: SearchResponseDto, isArray: true })
+  async search(query: string): Promise<SearchResponseDto> {
+    const searchTerm = `%${query}%`;
+
+    const songs = await this.songsRepository.find({
+      where: { title: ILike(searchTerm) },
+      relations: ['artist', 'album'],
+    });
+
+    const albums = await this.albumsRepository.find({
+      where: { title: ILike(searchTerm) },
+      relations: ['artist'],
+    });
+
+    const artists = await this.artistsRepository.find({
+      where: { name: ILike(searchTerm) },
+    });
+
+    return { songs, albums, artists };
   }
 
   async likeSong(userId: string, songId: string): Promise<{ success: boolean; message: string }> {
-    // First, check if the song exists
     const song = await this.findOne(songId);
-
-    // Check if song is already liked
     const existingLike = await this.likedSongsRepository.findOne({
       where: { userId, songId },
     });
@@ -72,11 +96,7 @@ export class SongsService {
       };
     }
 
-    // Create a new like
-    const likedSong = this.likedSongsRepository.create({
-      userId,
-      songId,
-    });
+    const likedSong = this.likedSongsRepository.create({ userId, songId });
     await this.likedSongsRepository.save(likedSong);
     
     return { 
@@ -86,10 +106,7 @@ export class SongsService {
   }
 
   async unlikeSong(userId: string, songId: string): Promise<{ success: boolean; message: string }> {
-    // First, check if the song exists
     const song = await this.findOne(songId);
-
-    // Check if song is liked
     const existingLike = await this.likedSongsRepository.findOne({
       where: { userId, songId },
     });
@@ -101,7 +118,6 @@ export class SongsService {
       };
     }
 
-    // Delete the like
     await this.likedSongsRepository.delete({ userId, songId });
     
     return { 
@@ -115,7 +131,6 @@ export class SongsService {
       where: { userId },
       relations: ['song', 'song.artist', 'song.album'],
     });
-
     return likedSongs.map(like => like.song);
   }
 
@@ -123,7 +138,6 @@ export class SongsService {
     const like = await this.likedSongsRepository.findOne({
       where: { userId, songId },
     });
-
     return !!like;
   }
-} 
+}

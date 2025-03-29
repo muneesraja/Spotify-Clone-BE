@@ -19,6 +19,20 @@ export class AlbumsService {
   async findAll(): Promise<Album[]> {
     return this.albumsRepository.find({
       relations: ['artist'],
+      order: {
+        isFeatured: 'DESC',
+      },
+    });
+  }
+
+  async findFeatured(): Promise<Album[]> {
+    return this.albumsRepository.find({
+      where: { isFeatured: true },
+      relations: ['artist'],  
+      order: {
+        isFeatured: 'DESC',
+      },
+      take: 10,
     });
   }
 
