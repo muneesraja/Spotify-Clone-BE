@@ -1,596 +1,596 @@
 export const albums = [
   {
     title: 'Not Like Us - Single',
-    imageUrl: 'https://i.scdn.co/image/ab67616d0000b2731d2f183c389431986427a1c7',
+    imageUrl: 'https://picsum.photos/seed/497/300/300',
     releaseDate: '2024-05-04',
-    artistId: 'Kendrick Lamar' // Use name to link
+    artistName: 'Kendrick Lamar',
   },
   {
-    title: 'WE DON\'T TRUST YOU',
-    imageUrl: 'https://i.scdn.co/image/ab67616d0000b2739c03f5763546c26b2512f127',
+    title: "WE DON'T TRUST YOU",
+    imageUrl: 'https://picsum.photos/seed/851/300/300',
     releaseDate: '2024-03-22',
-    artistId: 'Future'
+    artistName: 'Future',
   },
   {
-      title: 'A Bar Song (Tipsy) - Single',
-      imageUrl: 'https://i.scdn.co/image/ab67616d0000b2733e132938198b1e45a201c109',
-      releaseDate: '2024-04-05',
-      artistId: 'Shaboozey'
-    },
-    {
-      title: 'I Had Some Help - Single',
-      imageUrl: 'https://i.scdn.co/image/ab67616d0000b2733b1c67c85858021ab0ff64d6',
-      releaseDate: '2024-05-10',
-      artistId: 'Post Malone'
-    },
+    title: 'A Bar Song (Tipsy) - Single',
+    imageUrl: 'https://picsum.photos/seed/869/300/300',
+    releaseDate: '2024-04-05',
+    artistName: 'Shaboozey',
+  },
+  {
+    title: 'I Had Some Help - Single',
+    imageUrl: 'https://picsum.photos/seed/679/300/300',
+    releaseDate: '2024-05-10',
+    artistName: 'Post Malone',
+  },
   {
     title: 'SOS',
-    imageUrl: 'https://i.scdn.co/image/ab67616d0000b2732c84131569429402e1a90c11',
+    imageUrl: 'https://picsum.photos/seed/415/300/300',
     releaseDate: '2022-12-09',
-    artistId: 'SZA'
+    artistName: 'SZA',
   },
   {
     title: 'One Thing At a Time',
-    imageUrl: 'https://i.scdn.co/image/ab67616d0000b2739a80582234f5b84294697921',
+    imageUrl: 'https://picsum.photos/seed/335/300/300',
     releaseDate: '2023-03-03',
-    artistId: 'Morgan Wallen'
+    artistName: 'Morgan Wallen',
   },
   {
     title: 'Zach Bryan',
-    imageUrl: 'https://i.scdn.co/image/ab67616d0000b2739d151978f804c85248a3c57a',
+    imageUrl: 'https://picsum.photos/seed/66/300/300',
     releaseDate: '2023-08-25',
-    artistId: 'Zach Bryan'
+    artistName: 'Zach Bryan',
   },
   {
     title: 'Beautiful Things - Single',
-    imageUrl: 'https://i.scdn.co/image/ab67616d0000b2731e9381c8b3941f1f91b72e3a',
+    imageUrl: 'https://picsum.photos/seed/545/300/300',
     releaseDate: '2024-01-18',
-    artistId: 'Benson Boone'
+    artistName: 'Benson Boone',
   },
   {
     title: 'Street Gossip',
-    imageUrl: 'https://i.scdn.co/image/ab67616d0000b2732d1c5a914385135111f1852c',
+    imageUrl: 'https://picsum.photos/seed/688/300/300',
     releaseDate: '2018-11-30',
-    artistId: 'Lil Baby'
+    artistName: 'Lil Baby',
   },
   {
-    title: 'I\'ve Tried Everything Dear But I Think I\'m Gonna Kill Myself',
-    imageUrl: 'https://i.scdn.co/image/ab67616d0000b2732964ffc9c9c3e9c9a6207869',
+    title: "I've Tried Everything Dear But I Think I'm Gonna Kill Myself",
+    imageUrl: 'https://picsum.photos/seed/364/300/300',
     releaseDate: '2023-09-29',
-    artistId: 'Teddy Swims'
-  },
-    {
-    title: 'Espresso - Single',
-    imageUrl: 'https://i.scdn.co/image/ab67616d0000b27324df50a98f98e0b2e8c2275f',
-    releaseDate: '2024-05-22',
-    artistId: 'Sabrina Carpenter'
+    artistName: 'Teddy Swims',
   },
   {
-    title: 'WE DON\'T TRUST YOU',
-    imageUrl: 'https://i.scdn.co/image/ab67616d0000b2739c03f5763546c26b2512f127',
+    title: 'Espresso - Single',
+    imageUrl: 'https://picsum.photos/seed/566/300/300',
+    releaseDate: '2024-05-22',
+    artistName: 'Sabrina Carpenter',
+  },
+  {
+    title: "WE DON'T TRUST YOU",
+    imageUrl: 'https://picsum.photos/seed/851/300/300',
     releaseDate: '2024-03-22',
-    artistId: 'Future'
+    artistName: 'Future',
   },
   {
     title: 'Jack Harlow Come Home the Kids Miss You',
-    imageUrl: 'https://i.scdn.co/image/ab67616d0000b2732d9a2699f7d9c9b4e3391d1c',
+    imageUrl: 'https://picsum.photos/seed/95/300/300',
     releaseDate: '2022-05-06',
-    artistId: 'Jack Harlow'
+    artistName: 'Jack Harlow',
   },
   {
     title: 'One Thing At a Time',
-    imageUrl: 'https://i.scdn.co/image/ab67616d0000b2739a80582234f5b84294697921',
+    imageUrl: 'https://picsum.photos/seed/335/300/300',
     releaseDate: '2023-03-03',
-    artistId: 'Morgan Wallen'
+    artistName: 'Morgan Wallen',
   },
   {
     title: 'Stick Season',
-    imageUrl: 'https://i.scdn.co/image/ab67616d0000b2731d5f13c1b827889c25390623',
+    imageUrl: 'https://picsum.photos/seed/290/300/300',
     releaseDate: '2022-10-14',
-    artistId: 'Noah Kahan'
+    artistName: 'Noah Kahan',
   },
-    {
-      title: 'MILLION DOLLAR BABY - Single',
-      imageUrl: 'https://i.scdn.co/image/ab67616d0000b2733b1c67c85858021ab0ff64d6', // Placeholder
-      releaseDate: '2024-04-26',
-      artistId: 'Tommy Richman'
-    },
+  {
+    title: 'MILLION DOLLAR BABY - Single',
+    imageUrl: 'https://picsum.photos/seed/27/300/300',
+    releaseDate: '2024-04-26',
+    artistName: 'Tommy Richman',
+  },
   {
     title: 'HIT ME HARD AND SOFT',
-    imageUrl: 'https://i.scdn.co/image/ab67616d0000b2731f83c8a9d012429e3681429c',
+    imageUrl: 'https://picsum.photos/seed/149/300/300',
     releaseDate: '2024-05-17',
-    artistId: 'Billie Eilish'
+    artistName: 'Billie Eilish',
   },
   {
-      title: 'So Far Gone',
-      imageUrl: 'https://i.scdn.co/image/ab67616d0000b273129ef9933834b6c3848b8989',
-      releaseDate: '2009-09-15',
-      artistId: 'Drake'
-    },
-    {
-      title: 'Please Please Please - Single',
-      imageUrl: 'https://i.scdn.co/image/ab67616d0000b27324df50a98f98e0b2e8c2275f',
-      releaseDate: '2024-06-06',
-      artistId: 'Sabrina Carpenter'
-    },
-    {
-      title: 'For All The Dogs',
-      imageUrl: 'https://i.scdn.co/image/ab67616d0000b273129ef9933834b6c3848b8989', // Placeholder
-      releaseDate: '2023-10-06',
-      artistId: 'Drake'
-    },
+    title: 'So Far Gone',
+    imageUrl: 'https://picsum.photos/seed/923/300/300',
+    releaseDate: '2009-09-15',
+    artistName: 'Drake',
+  },
+  {
+    title: 'Please Please Please - Single',
+    imageUrl: 'https://picsum.photos/seed/228/300/300',
+    releaseDate: '2024-06-06',
+    artistName: 'Sabrina Carpenter',
+  },
+  {
+    title: 'For All The Dogs',
+    imageUrl: 'https://picsum.photos/seed/819/300/300',
+    releaseDate: '2023-10-06',
+    artistName: 'Drake',
+  },
   {
     title: 'My Turn',
-    imageUrl: 'https://i.scdn.co/image/ab67616d0000b2732d1c5a914385135111f1852c',
+    imageUrl: 'https://picsum.photos/seed/946/300/300',
     releaseDate: '2020-02-28',
-    artistId: 'Lil Baby'
+    artistName: 'Lil Baby',
   },
-    {
+  {
     title: 'Get It Sexyy - Single',
-    imageUrl: 'https://i.scdn.co/image/ab67616d0000b2732d1c5a914385135111f1852c', // Placeholder
+    imageUrl: 'https://picsum.photos/seed/513/300/300',
     releaseDate: '2023-06-02',
-    artistId: 'Sexyy Red'
+    artistName: 'Sexyy Red',
   },
   {
     title: 'I NEVER LIKED YOU',
-    imageUrl: 'https://i.scdn.co/image/ab67616d0000b2739c03f5763546c26b2512f127',
+    imageUrl: 'https://picsum.photos/seed/818/300/300',
     releaseDate: '2022-04-29',
-    artistId: 'Future'
+    artistName: 'Future',
   },
   {
     title: 'Vultures 1',
-    imageUrl: 'https://i.scdn.co/image/ab67616d0000b273e5140156942629b3c58254c7', // Placeholder
+    imageUrl: 'https://picsum.photos/seed/900/300/300',
     releaseDate: '2024-02-10',
-    artistId: '¥$'
+    artistName: '\u00a5$',
   },
-    {
+  {
     title: 'Too Sweet - Single',
-    imageUrl: 'https://i.scdn.co/image/ab67616d0000b2732d1f7e6b1c0c9c43d9692429',
+    imageUrl: 'https://picsum.photos/seed/643/300/300',
     releaseDate: '2024-03-22',
-    artistId: 'Hozier'
+    artistName: 'Hozier',
   },
   {
     title: 'Fast Car - Single',
-    imageUrl: 'https://i.scdn.co/image/ab67616d0000b2731f2e9178499a229a1b647f27',
+    imageUrl: 'https://picsum.photos/seed/960/300/300',
     releaseDate: '2023-04-07',
-    artistId: 'Luke Combs'
+    artistName: 'Luke Combs',
   },
   {
     title: 'One Thing At a Time',
-    imageUrl: 'https://i.scdn.co/image/ab67616d0000b2739a80582234f5b84294697921',
+    imageUrl: 'https://picsum.photos/seed/335/300/300',
     releaseDate: '2023-03-03',
-    artistId: 'Morgan Wallen'
+    artistName: 'Morgan Wallen',
   },
-    {
+  {
     title: 'My Turn',
-    imageUrl: 'https://i.scdn.co/image/ab67616d0000b2732d1c5a914385135111f1852c',
+    imageUrl: 'https://picsum.photos/seed/946/300/300',
     releaseDate: '2020-02-28',
-    artistId: 'Lil Baby'
+    artistName: 'Lil Baby',
   },
   {
-    title: 'Fearless (Taylor\'s Version)',
-    imageUrl: 'https://i.scdn.co/image/ab67616d0000b2731bd99b9c08611884c4542475',
+    title: "Fearless (Taylor's Version)",
+    imageUrl: 'https://picsum.photos/seed/33/300/300',
     releaseDate: '2021-04-09',
-    artistId: 'Taylor Swift'
+    artistName: 'Taylor Swift',
   },
   {
     title: 'One Thing At a Time',
-    imageUrl: 'https://i.scdn.co/image/ab67616d0000b2739a80582234f5b84294697921',
+    imageUrl: 'https://picsum.photos/seed/335/300/300',
     releaseDate: '2023-03-03',
-    artistId: 'Morgan Wallen'
+    artistName: 'Morgan Wallen',
   },
   {
     title: 'HNDRXX',
-    imageUrl: 'https://i.scdn.co/image/ab67616d0000b2739c03f5763546c26b2512f127',
+    imageUrl: 'https://picsum.photos/seed/585/300/300',
     releaseDate: '2017-02-24',
-    artistId: 'Future'
-  },
-    {
-    title: 'Yeah Glo! - Single',
-    imageUrl: 'https://i.scdn.co/image/ab67616d0000b2731d2f183c389431986427a1c7', // Placeholder
-    releaseDate: '2024-05-17',
-    artistId: 'GloRilla'
+    artistName: 'Future',
   },
   {
-      title: 'Agora Hills - Single',
-      imageUrl: 'https://i.scdn.co/image/ab67616d0000b2732d1c5a914385135111f1852c', // Placeholder
-      releaseDate: '2023-08-04',
-      artistId: 'Doja Cat'
-    },
-    {
-      title: 'SOS',
-      imageUrl: 'https://i.scdn.co/image/ab67616d0000b2732c84131569429402e1a90c11',
-      releaseDate: '2022-12-09',
-      artistId: 'SZA'
-    },
-    {
+    title: 'Yeah Glo! - Single',
+    imageUrl: 'https://picsum.photos/seed/969/300/300',
+    releaseDate: '2024-05-17',
+    artistName: 'GloRilla',
+  },
+  {
+    title: 'Agora Hills - Single',
+    imageUrl: 'https://picsum.photos/seed/975/300/300',
+    releaseDate: '2023-08-04',
+    artistName: 'Doja Cat',
+  },
+  {
+    title: 'SOS',
+    imageUrl: 'https://picsum.photos/seed/415/300/300',
+    releaseDate: '2022-12-09',
+    artistName: 'SZA',
+  },
+  {
     title: 'American Dream',
-    imageUrl: 'https://i.scdn.co/image/ab67616d0000b2732d1c5a914385135111f1852c', // Placeholder
+    imageUrl: 'https://picsum.photos/seed/657/300/300',
     releaseDate: '2024-01-12',
-    artistId: '21 Savage'
+    artistName: '21 Savage',
   },
   {
     title: 'TRAPSOUL',
-    imageUrl: 'https://i.scdn.co/image/ab67616d0000b2732d1c5a914385135111f1852c', // Placeholder
+    imageUrl: 'https://picsum.photos/seed/33/300/300',
     releaseDate: '2015-10-02',
-    artistId: 'Bryson Tiller'
+    artistName: 'Bryson Tiller',
   },
   {
     title: 'DS2',
-    imageUrl: 'https://i.scdn.co/image/ab67616d0000b2739c03f5763546c26b2512f127',
+    imageUrl: 'https://picsum.photos/seed/360/300/300',
     releaseDate: '2015-07-17',
-    artistId: 'Future'
+    artistName: 'Future',
   },
   {
     title: 'One Thing At a Time',
-    imageUrl: 'https://i.scdn.co/image/ab67616d0000b2739a80582234f5b84294697921',
+    imageUrl: 'https://picsum.photos/seed/335/300/300',
     releaseDate: '2023-03-03',
-    artistId: 'Morgan Wallen'
+    artistName: 'Morgan Wallen',
   },
-    {
+  {
     title: 'One Thing At a Time',
-    imageUrl: 'https://i.scdn.co/image/ab67616d0000b2739a80582234f5b84294697921',
+    imageUrl: 'https://picsum.photos/seed/335/300/300',
     releaseDate: '2023-03-03',
-    artistId: 'Morgan Wallen'
+    artistName: 'Morgan Wallen',
   },
   {
     title: 'Get In With Me - Single',
-    imageUrl: 'https://i.scdn.co/image/ab67616d0000b2732d1c5a914385135111f1852c', // Placeholder
+    imageUrl: 'https://picsum.photos/seed/452/300/300',
     releaseDate: '2024-04-19',
-     artistId: 'BossMan Dlow'
+    artistName: 'BossMan Dlow',
   },
   {
     title: 'UTOPIA',
-    imageUrl: 'https://i.scdn.co/image/ab67616d0000b2732d1c5a914385135111f1852c', // Placeholder
+    imageUrl: 'https://picsum.photos/seed/549/300/300',
     releaseDate: '2023-07-28',
-    artistId: 'Travis Scott'
+    artistName: 'Travis Scott',
   },
   {
     title: 'DS2',
-    imageUrl: 'https://i.scdn.co/image/ab67616d0000b2739c03f5763546c26b2512f127',
+    imageUrl: 'https://picsum.photos/seed/360/300/300',
     releaseDate: '2015-07-17',
-    artistId: 'Future'
+    artistName: 'Future',
   },
-    {
+  {
     title: 'Zach Bryan',
-    imageUrl: 'https://i.scdn.co/image/ab67616d0000b2739d151978f804c85248a3c57a',
+    imageUrl: 'https://picsum.photos/seed/66/300/300',
     releaseDate: '2023-08-25',
-    artistId: 'Zach Bryan'
+    artistName: 'Zach Bryan',
   },
   {
     title: 'Oklahoma Smokeshow - Single',
-    imageUrl: 'https://i.scdn.co/image/ab67616d0000b2739d151978f804c85248a3c57a', // Placeholder
+    imageUrl: 'https://picsum.photos/seed/877/300/300',
     releaseDate: '2023-08-04',
-     artistId: 'Zach Bryan'
+    artistName: 'Zach Bryan',
   },
   {
     title: 'Traveller',
-    imageUrl: 'https://i.scdn.co/image/ab67616d0000b2732d1c5a914385135111f1852c', // Placeholder
+    imageUrl: 'https://picsum.photos/seed/129/300/300',
     releaseDate: '2015-05-05',
-    artistId: 'Chris Stapleton'
+    artistName: 'Chris Stapleton',
   },
   {
     title: 'Born Sinner',
-    imageUrl: 'https://i.scdn.co/image/ab67616d0000b2732d1c5a914385135111f1852c', // Placeholder
+    imageUrl: 'https://picsum.photos/seed/855/300/300',
     releaseDate: '2013-06-18',
-    artistId: 'J. Cole'
+    artistName: 'J. Cole',
   },
-    {
+  {
     title: 'Zach Bryan',
-    imageUrl: 'https://i.scdn.co/image/ab67616d0000b2739d151978f804c85248a3c57a',
+    imageUrl: 'https://picsum.photos/seed/66/300/300',
     releaseDate: '2023-08-25',
-    artistId: 'Zach Bryan'
+    artistName: 'Zach Bryan',
   },
   {
     title: 'Scorpion',
-    imageUrl: 'https://i.scdn.co/image/ab67616d0000b273129ef9933834b6c3848b8989',
+    imageUrl: 'https://picsum.photos/seed/599/300/300',
     releaseDate: '2018-06-29',
-    artistId: 'Drake'
+    artistName: 'Drake',
   },
   {
     title: 'Beautiful Crazy - Single',
-    imageUrl: 'https://i.scdn.co/image/ab67616d0000b2731f2e9178499a229a1b647f27', // Placeholder
+    imageUrl: 'https://picsum.photos/seed/884/300/300',
     releaseDate: '2018-12-14',
-    artistId: 'Luke Combs'
+    artistName: 'Luke Combs',
   },
   {
-      title: 'The Tortured Poets Department',
-      imageUrl: 'https://i.scdn.co/image/ab67616d0000b2731bd99b9c08611884c4542475', // Placeholder
-      releaseDate: '2024-04-19',
-      artistId: 'Taylor Swift'
-    },
-    {
-    title: 'Gettin\' Old',
-    imageUrl: 'https://i.scdn.co/image/ab67616d0000b2731f2e9178499a229a1b647f27',
+    title: 'The Tortured Poets Department',
+    imageUrl: 'https://picsum.photos/seed/813/300/300',
+    releaseDate: '2024-04-19',
+    artistName: 'Taylor Swift',
+  },
+  {
+    title: "Gettin' Old",
+    imageUrl: 'https://picsum.photos/seed/267/300/300',
     releaseDate: '2023-03-24',
-    artistId: 'Luke Combs'
+    artistName: 'Luke Combs',
   },
   {
-      title: 'greedy - Single',
-      imageUrl: 'https://i.scdn.co/image/ab67616d0000b2732d1c5a914385135111f1852c', // Placeholder
-      releaseDate: '2023-09-15',
-      artistId: 'Tate McRae'
-    },
+    title: 'greedy - Single',
+    imageUrl: 'https://picsum.photos/seed/154/300/300',
+    releaseDate: '2023-09-15',
+    artistName: 'Tate McRae',
+  },
   {
     title: 'Certified Lover Boy',
-    imageUrl: 'https://i.scdn.co/image/ab67616d0000b273129ef9933834b6c3848b8989',
+    imageUrl: 'https://picsum.photos/seed/869/300/300',
     releaseDate: '2021-09-03',
-    artistId: 'Drake'
+    artistName: 'Drake',
   },
-    {
-      title: 'Gata Only - Single',
-      imageUrl: 'https://i.scdn.co/image/ab67616d0000b2732d1c5a914385135111f1852c', // Placeholder
-      releaseDate: '2024-05-03',
-      artistId: 'FloyyMenor'
-    },
-    {
+  {
+    title: 'Gata Only - Single',
+    imageUrl: 'https://picsum.photos/seed/271/300/300',
+    releaseDate: '2024-05-03',
+    artistName: 'FloyyMenor',
+  },
+  {
     title: 'SOS',
-    imageUrl: 'https://i.scdn.co/image/ab67616d0000b2732c84131569429402e1a90c11',
+    imageUrl: 'https://picsum.photos/seed/415/300/300',
     releaseDate: '2022-12-09',
-    artistId: 'SZA'
+    artistName: 'SZA',
   },
   {
     title: 'My Turn',
-    imageUrl: 'https://i.scdn.co/image/ab67616d0000b2732d1c5a914385135111f1852c',
+    imageUrl: 'https://picsum.photos/seed/946/300/300',
     releaseDate: '2020-02-28',
-    artistId: 'Lil Baby'
+    artistName: 'Lil Baby',
   },
-    {
-      title: 'a Gift & a Curse',
-      imageUrl: 'https://i.scdn.co/image/ab67616d0000b2732d1c5a914385135111f1852c', // Placeholder
-      releaseDate: '2023-06-16',
-      artistId: 'Gunna'
-    },
+  {
+    title: 'a Gift & a Curse',
+    imageUrl: 'https://picsum.photos/seed/726/300/300',
+    releaseDate: '2023-06-16',
+    artistName: 'Gunna',
+  },
   {
     title: 'For All The Dogs',
-    imageUrl: 'https://i.scdn.co/image/ab67616d0000b273129ef9933834b6c3848b8989', // Placeholder
+    imageUrl: 'https://picsum.photos/seed/819/300/300',
     releaseDate: '2023-10-06',
-    artistId: 'Drake'
+    artistName: 'Drake',
   },
   {
     title: 'Birds in the Trap Sing McKnight',
-    imageUrl: 'https://i.scdn.co/image/ab67616d0000b2732d1c5a914385135111f1852c', // Placeholder
+    imageUrl: 'https://picsum.photos/seed/852/300/300',
     releaseDate: '2016-09-02',
-    artistId: 'Travis Scott'
+    artistName: 'Travis Scott',
   },
   {
     title: 'One Thing At a Time',
-    imageUrl: 'https://i.scdn.co/image/ab67616d0000b2739a80582234f5b84294697921',
+    imageUrl: 'https://picsum.photos/seed/335/300/300',
     releaseDate: '2023-03-03',
-    artistId: 'Morgan Wallen'
+    artistName: 'Morgan Wallen',
   },
-    {
-    title: 'Don\'t Try This At Home',
-    imageUrl: 'https://i.scdn.co/image/ab67616d0000b2732d1c5a914385135111f1852c', // Placeholder
+  {
+    title: "Don't Try This At Home",
+    imageUrl: 'https://picsum.photos/seed/802/300/300',
     releaseDate: '2023-04-21',
-    artistId: 'YoungBoy Never Broke Again'
+    artistName: 'YoungBoy Never Broke Again',
   },
   {
     title: 'TRAPSOUL',
-    imageUrl: 'https://i.scdn.co/image/ab67616d0000b2732d1c5a914385135111f1852c', // Placeholder
+    imageUrl: 'https://picsum.photos/seed/33/300/300',
     releaseDate: '2015-10-02',
-    artistId: 'Bryson Tiller'
+    artistName: 'Bryson Tiller',
   },
   {
     title: 'For All The Dogs',
-    imageUrl: 'https://i.scdn.co/image/ab67616d0000b273129ef9933834b6c3848b8989', // Placeholder
+    imageUrl: 'https://picsum.photos/seed/819/300/300',
     releaseDate: '2023-10-06',
-    artistId: 'Drake'
+    artistName: 'Drake',
   },
-    {
-      title: 'Good Luck, Babe! - Single',
-      imageUrl: 'https://i.scdn.co/image/ab67616d0000b2732d1c5a914385135111f1852c', // Placeholder
-      releaseDate: '2024-06-28',
-      artistId: 'Chappell Roan'
-    },
+  {
+    title: 'Good Luck, Babe! - Single',
+    imageUrl: 'https://picsum.photos/seed/260/300/300',
+    releaseDate: '2024-06-28',
+    artistName: 'Chappell Roan',
+  },
   {
     title: 'SOS',
-    imageUrl: 'https://i.scdn.co/image/ab67616d0000b2732c84131569429402e1a90c11',
+    imageUrl: 'https://picsum.photos/seed/415/300/300',
     releaseDate: '2022-12-09',
-    artistId: 'SZA'
+    artistName: 'SZA',
   },
-    {
+  {
     title: 'Zach Bryan',
-    imageUrl: 'https://i.scdn.co/image/ab67616d0000b2739d151978f804c85248a3c57a',
+    imageUrl: 'https://picsum.photos/seed/66/300/300',
     releaseDate: '2023-08-25',
-    artistId: 'Zach Bryan'
+    artistName: 'Zach Bryan',
   },
   {
     title: 'Issa Album',
-    imageUrl: 'https://i.scdn.co/image/ab67616d0000b2732d1c5a914385135111f1852c', // Placeholder
+    imageUrl: 'https://picsum.photos/seed/326/300/300',
     releaseDate: '2017-06-16',
-    artistId: '21 Savage'
+    artistName: '21 Savage',
   },
   {
     title: 'Indigo',
-    imageUrl: 'https://i.scdn.co/image/ab67616d0000b2732d1c5a914385135111f1852c', // Placeholder
+    imageUrl: 'https://picsum.photos/seed/951/300/300',
     releaseDate: '2019-06-28',
-    artistId: 'Chris Brown'
+    artistName: 'Chris Brown',
   },
   {
     title: 'For All The Dogs',
-    imageUrl: 'https://i.scdn.co/image/ab67616d0000b273129ef9933834b6c3848b8989', // Placeholder
+    imageUrl: 'https://picsum.photos/seed/819/300/300',
     releaseDate: '2023-10-06',
-    artistId: 'Drake'
+    artistName: 'Drake',
   },
   {
     title: 'Nostalgia',
-    imageUrl: 'https://i.scdn.co/image/ab67616d0000b2732d1c5a914385135111f1852c', // Placeholder
+    imageUrl: 'https://picsum.photos/seed/434/300/300',
     releaseDate: '2023-09-01',
-    artistId: 'Rod Wave'
+    artistName: 'Rod Wave',
   },
   {
     title: 'For All The Dogs',
-    imageUrl: 'https://i.scdn.co/image/ab67616d0000b273129ef9933834b6c3848b8989', // Placeholder
+    imageUrl: 'https://picsum.photos/seed/819/300/300',
     releaseDate: '2023-10-06',
-    artistId: 'Drake'
+    artistName: 'Drake',
   },
-    {
+  {
     title: 'Wanna Be - Single',
-    imageUrl: 'https://i.scdn.co/image/ab67616d0000b2731d2f183c389431986427a1c7', // Placeholder
+    imageUrl: 'https://picsum.photos/seed/67/300/300',
     releaseDate: '2024-05-31',
-    artistId: 'GloRilla'
+    artistName: 'GloRilla',
   },
   {
     title: 'Scorpion',
-    imageUrl: 'https://i.scdn.co/image/ab67616d0000b273129ef9933834b6c3848b8989',
+    imageUrl: 'https://picsum.photos/seed/599/300/300',
     releaseDate: '2018-06-29',
-    artistId: 'Drake'
+    artistName: 'Drake',
   },
   {
-      title: 'More Life',
-      imageUrl: 'https://i.scdn.co/image/ab67616d0000b273129ef9933834b6c3848b8989',
-      releaseDate: '2017-03-18',
-      artistId: 'Drake'
-    },
-    {
-    title: 'Indigo',
-    imageUrl: 'https://i.scdn.co/image/ab67616d0000b2732d1c5a914385135111f1852c', // Placeholder
-    releaseDate: '2019-06-28',
-    artistId: 'Chris Brown'
+    title: 'More Life',
+    imageUrl: 'https://picsum.photos/seed/433/300/300',
+    releaseDate: '2017-03-18',
+    artistName: 'Drake',
   },
-    {
+  {
+    title: 'Indigo',
+    imageUrl: 'https://picsum.photos/seed/951/300/300',
+    releaseDate: '2019-06-28',
+    artistName: 'Chris Brown',
+  },
+  {
     title: 'Zach Bryan',
-    imageUrl: 'https://i.scdn.co/image/ab67616d0000b2739d151978f804c85248a3c57a',
+    imageUrl: 'https://picsum.photos/seed/66/300/300',
     releaseDate: '2023-08-25',
-    artistId: 'Zach Bryan'
+    artistName: 'Zach Bryan',
   },
   {
     title: 'Dying to Live',
-    imageUrl: 'https://i.scdn.co/image/ab67616d0000b2732d1c5a914385135111f1852c', // Placeholder
+    imageUrl: 'https://picsum.photos/seed/633/300/300',
     releaseDate: '2018-12-14',
-    artistId: 'Kodak Black'
+    artistName: 'Kodak Black',
   },
-    {
-      title: 'Made For Me - Single',
-      imageUrl: 'https://i.scdn.co/image/ab67616d0000b2732d1c5a914385135111f1852c', // Placeholder
-      releaseDate: '2023-09-15',
-      artistId: 'Muni Long'
-    },
-    {
-      title: 'Chilombo',
-      imageUrl: 'https://i.scdn.co/image/ab67616d0000b2732d1c5a914385135111f1852c', // Placeholder
-      releaseDate: '2020-03-06',
-      artistId: 'Jhené Aiko'
-    },
-    {
-      title: 'SOS',
-      imageUrl: 'https://i.scdn.co/image/ab67616d0000b2732c84131569429402e1a90c11',
-      releaseDate: '2022-12-09',
-      artistId: 'SZA'
-    },
-    {
-      title: 'Mmhmm - Single',
-      imageUrl: 'https://i.scdn.co/image/ab67616d0000b2732d1c5a914385135111f1852c', // Placeholder
-      releaseDate: '2024-04-26',
-      artistId: 'BigXthaPlug'
-    },
-    {
-      title: 'HIT ME HARD AND SOFT',
-      imageUrl: 'https://i.scdn.co/image/ab67616d0000b2731f83c8a9d012429e3681429c',
-      releaseDate: '2024-05-17',
-      artistId: 'Billie Eilish'
-    },
-    {
-      title: 'One Thing At a Time',
-      imageUrl: 'https://i.scdn.co/image/ab67616d0000b2739a80582234f5b84294697921',
-      releaseDate: '2023-03-03',
-      artistId: 'Morgan Wallen'
-    },
+  {
+    title: 'Made For Me - Single',
+    imageUrl: 'https://picsum.photos/seed/732/300/300',
+    releaseDate: '2023-09-15',
+    artistName: 'Muni Long',
+  },
+  {
+    title: 'Chilombo',
+    imageUrl: 'https://picsum.photos/seed/916/300/300',
+    releaseDate: '2020-03-06',
+    artistName: 'Jhen\u00e9 Aiko',
+  },
+  {
+    title: 'SOS',
+    imageUrl: 'https://picsum.photos/seed/415/300/300',
+    releaseDate: '2022-12-09',
+    artistName: 'SZA',
+  },
+  {
+    title: 'Mmhmm - Single',
+    imageUrl: 'https://picsum.photos/seed/341/300/300',
+    releaseDate: '2024-04-26',
+    artistName: 'BigXthaPlug',
+  },
+  {
+    title: 'HIT ME HARD AND SOFT',
+    imageUrl: 'https://picsum.photos/seed/149/300/300',
+    releaseDate: '2024-05-17',
+    artistName: 'Billie Eilish',
+  },
+  {
+    title: 'One Thing At a Time',
+    imageUrl: 'https://picsum.photos/seed/335/300/300',
+    releaseDate: '2023-03-03',
+    artistName: 'Morgan Wallen',
+  },
   {
     title: 'For All The Dogs',
-    imageUrl: 'https://i.scdn.co/image/ab67616d0000b273129ef9933834b6c3848b8989', // Placeholder
+    imageUrl: 'https://picsum.photos/seed/819/300/300',
     releaseDate: '2023-10-06',
-    artistId: 'Drake'
+    artistName: 'Drake',
   },
   {
     title: '2014 Forest Hills Drive',
-    imageUrl: 'https://i.scdn.co/image/ab67616d0000b2732d1c5a914385135111f1852c', // Placeholder
+    imageUrl: 'https://picsum.photos/seed/591/300/300',
     releaseDate: '2014-12-09',
-    artistId: 'J. Cole'
+    artistName: 'J. Cole',
   },
-    {
+  {
     title: 'Zach Bryan',
-    imageUrl: 'https://i.scdn.co/image/ab67616d0000b2739d151978f804c85248a3c57a',
+    imageUrl: 'https://picsum.photos/seed/66/300/300',
     releaseDate: '2023-08-25',
-    artistId: 'Zach Bryan'
+    artistName: 'Zach Bryan',
   },
-    {
-      title: 'we can\'t be friends (wait for your love) - Single',
-      imageUrl: 'https://i.scdn.co/image/ab67616d0000b2732d1c5a914385135111f1852c', // Placeholder
-      releaseDate: '2024-03-08',
-      artistId: 'Ariana Grande'
-    },
+  {
+    title: "we can't be friends (wait for your love) - Single",
+    imageUrl: 'https://picsum.photos/seed/977/300/300',
+    releaseDate: '2024-03-08',
+    artistName: 'Ariana Grande',
+  },
   {
     title: 'My Turn',
-    imageUrl: 'https://i.scdn.co/image/ab67616d0000b2732d1c5a914385135111f1852c',
+    imageUrl: 'https://picsum.photos/seed/946/300/300',
     releaseDate: '2020-02-28',
-    artistId: 'Lil Baby'
+    artistName: 'Lil Baby',
   },
-    {
-    title: 'This One\'s for You',
-    imageUrl: 'https://i.scdn.co/image/ab67616d0000b2731f2e9178499a229a1b647f27',
+  {
+    title: "This One's for You",
+    imageUrl: 'https://picsum.photos/seed/678/300/300',
     releaseDate: '2017-06-02',
-    artistId: 'Luke Combs'
+    artistName: 'Luke Combs',
   },
-    {
-      title: 'CLEAR 2: SOFT LIFE',
-      imageUrl: 'https://i.scdn.co/image/ab67616d0000b2732d1c5a914385135111f1852c', // Placeholder
-      releaseDate: '2023-05-19',
-      artistId: 'Summer Walker'
-    },
+  {
+    title: 'CLEAR 2: SOFT LIFE',
+    imageUrl: 'https://picsum.photos/seed/556/300/300',
+    releaseDate: '2023-05-19',
+    artistName: 'Summer Walker',
+  },
   {
     title: 'DS2',
-    imageUrl: 'https://i.scdn.co/image/ab67616d0000b2739c03f5763546c26b2512f127',
+    imageUrl: 'https://picsum.photos/seed/360/300/300',
     releaseDate: '2015-07-17',
-    artistId: 'Future'
+    artistName: 'Future',
   },
-    {
-    title: 'Don\'t Try This At Home',
-    imageUrl: 'https://i.scdn.co/image/ab67616d0000b2732d1c5a914385135111f1852c', // Placeholder
+  {
+    title: "Don't Try This At Home",
+    imageUrl: 'https://picsum.photos/seed/802/300/300',
     releaseDate: '2023-04-21',
-    artistId: 'YoungBoy Never Broke Again'
+    artistName: 'YoungBoy Never Broke Again',
   },
-    {
-      title: 'La Diabla - Single',
-      imageUrl: 'https://i.scdn.co/image/ab67616d0000b2732d1c5a914385135111f1852c', // Placeholder
-      releaseDate: '2024-04-26',
-      artistId: 'Xavi'
-    },
-    {
+  {
+    title: 'La Diabla - Single',
+    imageUrl: 'https://picsum.photos/seed/533/300/300',
+    releaseDate: '2024-04-26',
+    artistName: 'Xavi',
+  },
+  {
     title: 'One Thing At a Time',
-    imageUrl: 'https://i.scdn.co/image/ab67616d0000b2739a80582234f5b84294697921',
+    imageUrl: 'https://picsum.photos/seed/335/300/300',
     releaseDate: '2023-03-03',
-    artistId: 'Morgan Wallen'
+    artistName: 'Morgan Wallen',
   },
   {
     title: 'Channel Orange',
-    imageUrl: 'https://i.scdn.co/image/ab67616d0000b2732d1c5a914385135111f1852c', // Placeholder
+    imageUrl: 'https://picsum.photos/seed/814/300/300',
     releaseDate: '2012-07-10',
-    artistId: 'Frank Ocean'
+    artistName: 'Frank Ocean',
   },
   {
     title: 'Almost Healed',
-    imageUrl: 'https://i.scdn.co/image/ab67616d0000b2732d1c5a914385135111f1852c', // Placeholder
+    imageUrl: 'https://picsum.photos/seed/403/300/300',
     releaseDate: '2023-05-26',
-    artistId: 'Lil Durk'
+    artistName: 'Lil Durk',
   },
-    {
-      title: 'TÚ NAME - Single',
-      imageUrl: 'https://i.scdn.co/image/ab67616d0000b2732d1c5a914385135111f1852c', // Placeholder
-      releaseDate: '2024-05-02',
-      artistId: 'Fuerza Regida'
-    },
+  {
+    title: 'T\u00da NAME - Single',
+    imageUrl: 'https://picsum.photos/seed/732/300/300',
+    releaseDate: '2024-05-02',
+    artistName: 'Fuerza Regida',
+  },
   {
     title: 'T R A P S O U L',
-    imageUrl: 'https://i.scdn.co/image/ab67616d0000b2732d1c5a914385135111f1852c', // Placeholder
+    imageUrl: 'https://picsum.photos/seed/207/300/300',
     releaseDate: '2015-10-02',
-    artistId: 'Bryson Tiller'
+    artistName: 'Bryson Tiller',
   },
-    {
-      title: 'GÉNESIS',
-      imageUrl: 'https://i.scdn.co/image/ab67616d0000b2732d1c5a914385135111f1852c', // Placeholder
-      releaseDate: '2024-06-20',
-      artistId: 'Peso Pluma'
-    }
+  {
+    title: 'G\u00c9NESIS',
+    imageUrl: 'https://picsum.photos/seed/300/300/300',
+    releaseDate: '2024-06-20',
+    artistName: 'Peso Pluma',
+  },
 ];
