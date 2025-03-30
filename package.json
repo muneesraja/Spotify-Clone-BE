@@ -4,6 +4,9 @@
   "description": "A NestJS backend API for a Spotify-like music streaming application",
   "author": "Nidana",
   "private": true,
+  "engines": {
+    "node": ">=22.11.0"
+  },
   "license": "UNLICENSED",
   "scripts": {
     "build": "nest build",
