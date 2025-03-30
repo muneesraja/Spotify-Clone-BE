@@ -1,7 +1,6 @@
 import { NestFactory } from '@nestjs/core';
 import { AppModule } from '../app.module';
 import { DataSource } from 'typeorm';
-import { seedAlbums } from './seeds/album.seed';
 import { seedSongs } from './seeds/song.seed';
 import { seedAlbumDatabase } from './seeds/album_db.seed';
 
@@ -18,7 +17,6 @@ async function bootstrap() {
 
     // Then run the built-in seed functions
     console.log('\n=== Seeding from built-in data ===');
-    await seedAlbums(dataSource);
     await seedSongs(dataSource);
     
     console.log('Database seeding completed successfully!');

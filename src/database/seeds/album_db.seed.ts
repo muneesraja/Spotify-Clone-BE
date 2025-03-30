@@ -44,8 +44,8 @@ export async function seedAlbumDatabase(dataSource: DataSource) {
   let albumsSeedData: AlbumSeedData[] = [];
 
   try {
-    // For artists.js
-    const artistsFilePath = path.join(basePath, 'artists.js');
+    // For artists.ts
+    const artistsFilePath = path.join(basePath, 'artists.ts');
     if (fs.existsSync(artistsFilePath)) {
       // Use require() instead of dynamic import
       try {
@@ -59,8 +59,8 @@ export async function seedAlbumDatabase(dataSource: DataSource) {
       console.warn(`Artists data file not found at ${artistsFilePath}`);
     }
 
-    // For albums.js
-    const albumsFilePath = path.join(basePath, 'albums.js');
+    // For albums.ts
+    const albumsFilePath = path.join(basePath, 'albums.ts');
     if (fs.existsSync(albumsFilePath)) {
       // Use require() instead of dynamic import
       try {
