@@ -41,13 +41,13 @@ describe('Authentication (e2e)', () => {
         .send(testUser)
         .expect(201)
         .expect((res) => {
-          expect(res.body).toHaveProperty('id');
-          expect(res.body.email).toBe(testUser.email);
-          expect(res.body.username).toBe(testUser.username);
-          expect(res.body).not.toHaveProperty('password');
-          expect(res.body.isActive).toBe(true);
-          expect(res.body).toHaveProperty('createdAt');
-          expect(res.body).toHaveProperty('updatedAt');
+          expect(res.body.user).toHaveProperty('id');
+          expect(res.body.user.email).toBe(testUser.email);
+          expect(res.body.user.username).toBe(testUser.username);
+          expect(res.body.user).not.toHaveProperty('password');
+          expect(res.body.user.isActive).toBe(true);
+          expect(res.body.user).toHaveProperty('createdAt');
+          expect(res.body.user).toHaveProperty('updatedAt');
         });
     });
 

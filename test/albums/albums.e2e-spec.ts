@@ -75,7 +75,7 @@ describe('Albums (e2e)', () => {
     });
 
     it('should return 404 for non-existent album ID', () => {
-      const nonExistentId = '00000000-0000-0000-0000-000000000000';
+      const nonExistentId = '12120f31-4b4f-4be2-8509-b6b3c955d0f6';
       
       return request(app.getHttpServer())
         .get(`/albums/${nonExistentId}`)

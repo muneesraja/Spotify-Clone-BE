@@ -53,7 +53,7 @@ describe('CreateArtistDto', () => {
   });
 
   it('should fail with missing imageUrl', async () => {
-    const dto = new CreateArtistDto();
+    const dto = new CreateArtistDto() as any;
     dto.name = 'Test Artist';
 
     const errors = await validate(dto);
@@ -73,4 +73,4 @@ describe('CreateArtistDto', () => {
     expect(errors.some(error => error.property === 'imageUrl' && error.constraints?.isString)).toBeTruthy();
     expect(errors.some(error => error.property === 'description' && error.constraints?.isString)).toBeTruthy();
   });
-}); 
+});

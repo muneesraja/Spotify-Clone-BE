@@ -1,4 +1,4 @@
-import { IsString, IsNotEmpty, IsOptional, IsBoolean, IsUrl } from 'class-validator';
+import { IsString, IsNotEmpty, IsOptional, IsBoolean } from 'class-validator';
 import { ApiProperty } from '@nestjs/swagger';
 
 export class CreateArtistDto {
@@ -8,7 +8,7 @@ export class CreateArtistDto {
   name: string;
 
   @ApiProperty({ description: 'The URL of the artist\'s profile image', example: 'https://example.com/images/ed-sheeran.jpg' })
-  @IsUrl()
+  @IsString()
   @IsNotEmpty()
   imageUrl: string;
 

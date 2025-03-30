@@ -29,18 +29,17 @@ describe('Songs (e2e)', () => {
     );
     app.useGlobalFilters(new EntityExceptionFilter());
     await app.init();
-
     // Register and login to get a JWT token
     await request(app.getHttpServer())
-      .post('/auth/register')
-      .send(testUser);
-
+    .post('/auth/register')
+    .send(testUser);
+    
     const loginResponse = await request(app.getHttpServer())
-      .post('/auth/login')
-      .send({
-        email: testUser.email,
-        password: testUser.password,
-      });
+    .post('/auth/login')
+    .send({
+      email: testUser.email,
+      password: testUser.password,
+    });
 
     jwtToken = loginResponse.body.access_token;
   });
@@ -48,13 +47,13 @@ describe('Songs (e2e)', () => {
   afterAll(async () => {
     await app.close();
   });
-
+  
   describe('Song List Feature', () => {
     it('should get all songs', async () => {
       const response = await request(app.getHttpServer())
-        .get('/songs')
-        .expect(200);
-
+      .get('/songs')
+      .expect(200);
+      
       expect(Array.isArray(response.body)).toBe(true);
       
       if (response.body.length > 0) {
@@ -68,51 +67,51 @@ describe('Songs (e2e)', () => {
         testSongId = song.id;
       }
     });
-
+    
     it('should get a song by ID', async () => {
       // Skip if no songs in database
       if (!testSongId) {
         console.warn('Skipping song by ID test - no songs in the database');
         return;
       }
-
+      
       const response = await request(app.getHttpServer())
-        .get(`/songs/${testSongId}`)
-        .expect(200);
-
+      .get(`/songs/${testSongId}`)
+      .expect(200);
+      
       expect(response.body).toHaveProperty('id', testSongId);
       expect(response.body).toHaveProperty('title');
       expect(response.body).toHaveProperty('duration');
       expect(response.body).toHaveProperty('url');
     });
-
+    
     it('should return 400 for non-existent song ID', () => {
       const nonExistentId = '00000000-0000-0000-0000-000000000000';
       
       return request(app.getHttpServer())
-        .get(`/songs/${nonExistentId}`)
-        .expect(400)
-        .expect((res) => {
-          expect(res.body.message).toContain('Invalid ID format');
-        });
+      .get(`/songs/${nonExistentId}`)
+      .expect(400)
+      .expect((res) => {
+        expect(res.body.message).toContain('Invalid ID format');
+      });
     });
-
+    
     it('should return 400 for invalid song ID format', () => {
       return request(app.getHttpServer())
-        .get('/songs/invalid-id')
-        .expect(400)
-        .expect((res) => {
-          expect(res.body.message).toContain('Invalid ID format');
-        });
+      .get('/songs/invalid-id')
+      .expect(400)
+      .expect((res) => {
+        expect(res.body.message).toContain('Invalid ID format');
+      });
     });
   });
-
+  
   describe('Featured Songs', () => {
     it('should get featured songs', async () => {
       const response = await request(app.getHttpServer())
-        .get('/songs/featured')
-        .expect(200);
-
+      .get('/songs/featured')
+      .expect(200);
+      
       expect(Array.isArray(response.body)).toBe(true);
       
       if (response.body.length > 0) {
@@ -123,24 +122,44 @@ describe('Songs (e2e)', () => {
       }
     });
   });
-
+  
   describe('Search Feature', () => {
     it('should search songs by query', async () => {
       // Search for a common term that's likely to exist
       const response = await request(app.getHttpServer())
-        .get('/songs/search?q=a')
+        .get('/songs/search?q=a') // Assuming 'a' might match something
         .expect(200);
 
-      expect(Array.isArray(response.body)).toBe(true);
+      // Expect the response body to be an object with the expected keys
+      expect(response.body).toBeInstanceOf(Object);
+      expect(response.body).toHaveProperty('songs');
+      expect(response.body).toHaveProperty('albums');
+      expect(response.body).toHaveProperty('artists');
+
+      // Expect each key to hold an array
+      expect(Array.isArray(response.body.songs)).toBe(true);
+      expect(Array.isArray(response.body.albums)).toBe(true);
+      expect(Array.isArray(response.body.artists)).toBe(true);
     });
 
-    it('should return empty array for no matches', async () => {
+    it('should return empty arrays for no matches', async () => {
       const response = await request(app.getHttpServer())
         .get('/songs/search?q=nonexistentsongxyz123')
         .expect(200);
 
-      expect(Array.isArray(response.body)).toBe(true);
-      expect(response.body.length).toBe(0);
+      // Expect the response body to be an object with the expected keys
+      expect(response.body).toBeInstanceOf(Object);
+      expect(response.body).toHaveProperty('songs');
+      expect(response.body).toHaveProperty('albums');
+      expect(response.body).toHaveProperty('artists');
+
+      // Expect each key to hold an empty array
+      expect(Array.isArray(response.body.songs)).toBe(true);
+      expect(response.body.songs.length).toBe(0);
+      expect(Array.isArray(response.body.albums)).toBe(true);
+      expect(response.body.albums.length).toBe(0);
+      expect(Array.isArray(response.body.artists)).toBe(true);
+      expect(response.body.artists.length).toBe(0);
     });
   });
 

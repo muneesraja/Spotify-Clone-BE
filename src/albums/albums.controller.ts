@@ -38,6 +38,7 @@ export class AlbumsController {
   @Get(':id')
   @ApiOperation({ summary: 'Get an album by id' })
   @ApiResponse({ status: 200, description: 'Return the album.', type: Album })
+  @ApiResponse({ status: 400, description: 'Invalid UUID format.' })
   @ApiResponse({ status: 404, description: 'Album not found.' })
   findOne(@Param('id', ParseUUIDPipe) id: string) {
     return this.albumsService.findOne(id);

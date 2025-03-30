@@ -15,8 +15,7 @@ export class LikedSongsController {
   @ApiOperation({ summary: 'Get current user\'s liked songs' })
   @ApiResponse({ status: 200, description: 'Return the list of liked songs.', type: [Song] })
   @ApiResponse({ status: 401, description: 'Unauthorized.' })
-  getLikedSongs(@Request() req) {
-    console.log('req.user', req.user);
+  getLikedSongs(@Request() req: { user: { userId: string } }) {
     return this.songsService.getUserLikedSongs(req.user.userId);
   }
 } 
