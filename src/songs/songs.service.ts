@@ -69,15 +69,18 @@ export class SongsService {
     const songs = await this.songsRepository.find({
       where: { title: ILike(searchTerm) },
       relations: ['artist', 'album'],
+      take: 10,
     });
 
     const albums = await this.albumsRepository.find({
       where: { title: ILike(searchTerm) },
       relations: ['artist'],
+      take: 10,
     });
 
     const artists = await this.artistsRepository.find({
       where: { name: ILike(searchTerm) },
+      take: 10,
     });
 
     return { songs, albums, artists };

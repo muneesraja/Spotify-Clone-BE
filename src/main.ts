@@ -5,6 +5,7 @@ import { AppModule } from './app.module';
 import { EntityExceptionFilter } from './common/filters/entity-not-found.filter';
 import { writeFileSync } from 'fs';
 import { join } from 'path';
+import * as cookieParser from 'cookie-parser';
 
 async function bootstrap() {
   const app = await NestFactory.create(AppModule);
@@ -20,12 +21,25 @@ async function bootstrap() {
   
   // Apply global filters
   app.useGlobalFilters(new EntityExceptionFilter());
+
+  // Parse cookies
+  app.use(cookieParser());
   
   app.enableCors({
     origin: ['http://localhost:3001', 'http://localhost:3000'],
-    methods: ['GET', 'POST', 'PUT', 'DELETE'],
-    allowedHeaders: ['Content-Type', 'Authorization'],
+    methods: ['GET', 'POST', 'PUT', 'DELETE', 'PATCH', 'OPTIONS'],
+    allowedHeaders: [
+      'Content-Type', 
+      'Authorization',
+      'Accept',
+      'Origin',
+      'X-Requested-With',
+      'Cookie'
+    ],
+    exposedHeaders: ['Set-Cookie'],
     credentials: true,
+    preflightContinue: false,
+    optionsSuccessStatus: 204
   });
 
   // Setup Swagger
