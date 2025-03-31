@@ -33,7 +33,7 @@ export class SongsService {
       relations: ['artist', 'album'],
       order: {
         isFeatured: 'DESC',
-      },
+      }
     });
   }
 
