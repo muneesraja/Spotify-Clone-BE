@@ -29,4 +29,17 @@
 ### Fixed
 - UUID validation for route parameters
 - Clear error messages for invalid UUIDs
-- Response format standardization for like/unlike operations 
+- Response format standardization for like/unlike operations
+
+## [3.0.0] - YYYY-MM-DD  <!-- Replace YYYY-MM-DD with the actual release date -->
+
+### Added
+- Implemented cookie-based authentication via.
+- Added seeding mechanism suitable for production environments.
+
+### Changed
+- Improved consistency in the like/unlike song feature responses and behavior.
+
+### Fixed
+- Resolved CORS configuration issues.
+- Corrected failures in DTO validation and end-to-end tests. 

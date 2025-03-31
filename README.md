@@ -20,6 +20,8 @@ A NestJS backend API for a Spotify-like music streaming application. This backen
 
 ## API Endpoints
 
+All endpoints are prefixed with `/api` in production.
+
 ### Authentication
 - `POST /auth/register` - Register new user
 - `POST /auth/login` - Login user
@@ -92,12 +94,16 @@ The API includes comprehensive error handling:
 
 ## Authentication
 
-Protected routes require a JWT token. To access these routes:
+Protected routes require a JWT token. This can be provided either:
 
-1. Create a user with `POST /auth/register`
-2. Login with `POST /auth/login`
-3. Use the returned token in the Authorization header:
-   `Authorization: Bearer your_token_here`
+1.  **Via Authorization Header:**
+    *   Create a user with `POST /auth/register`
+    *   Login with `POST /auth/login`
+    *   Use the returned token in the `Authorization` header: `Authorization: Bearer your_token_here`
+2.  **Via Cookie:**
+    *   Create a user with `POST /auth/register`
+    *   Sign in with `POST /auth/signin` - this sets a secure, httpOnly cookie named `token`.
+    *   Subsequent requests from a browser environment should automatically include the cookie.
 
 ## Future Enhancements
 
