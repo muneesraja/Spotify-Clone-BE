@@ -10,6 +10,8 @@ import * as cookieParser from 'cookie-parser';
 async function bootstrap() {
   const app = await NestFactory.create(AppModule);
   
+  // Set global prefix
+  app.setGlobalPrefix('api');
   // Enable validation
   app.useGlobalPipes(
     new ValidationPipe({
@@ -26,7 +28,7 @@ async function bootstrap() {
   app.use(cookieParser());
   
   app.enableCors({
-    origin: ['http://localhost:3001', 'http://localhost:3000', "https://spotify.mindlyq.com"],
+    origin: ['http://localhost:3001', 'http://localhost:3000', 'http://127.0.0.1:3000', 'http://127.0.0.1:3001', 'https://spotify.mindlyq.com', 'https://spoty-back-end.mindlyq.com'],
     methods: ['GET', 'POST', 'PUT', 'DELETE', 'PATCH', 'OPTIONS'],
     allowedHeaders: [
       'Content-Type', 
@@ -39,7 +41,9 @@ async function bootstrap() {
     exposedHeaders: ['Set-Cookie'],
     credentials: true,
     preflightContinue: false,
-    optionsSuccessStatus: 204
+    optionsSuccessStatus: 204,
+    sameSite: 'none',
+    secure: false,
   });
 
   // Setup Swagger

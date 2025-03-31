@@ -1,7 +1,7 @@
 {
   "openapi": "3.0.0",
   "paths": {
-    "/": {
+    "/api": {
       "get": {
         "operationId": "AppController_getHello",
         "parameters": [],
@@ -15,7 +15,7 @@
         ]
       }
     },
-    "/auth/login": {
+    "/api/auth/login": {
       "post": {
         "operationId": "AuthController_login",
         "parameters": [],
@@ -55,7 +55,7 @@
         ]
       }
     },
-    "/auth/register": {
+    "/api/auth/register": {
       "post": {
         "operationId": "AuthController_register",
         "parameters": [],
@@ -90,7 +90,7 @@
         ]
       }
     },
-    "/auth/user/profile": {
+    "/api/auth/user/profile": {
       "get": {
         "operationId": "AuthController_getMe",
         "parameters": [],
@@ -120,7 +120,7 @@
         ]
       }
     },
-    "/auth/logout": {
+    "/api/auth/logout": {
       "post": {
         "operationId": "AuthController_logout",
         "parameters": [],
@@ -134,7 +134,7 @@
         ]
       }
     },
-    "/albums": {
+    "/api/albums": {
       "post": {
         "operationId": "AlbumsController_create",
         "parameters": [],
@@ -194,7 +194,7 @@
         ]
       }
     },
-    "/albums/featured": {
+    "/api/albums/featured": {
       "get": {
         "operationId": "AlbumsController_findFeatured",
         "parameters": [],
@@ -219,7 +219,7 @@
         ]
       }
     },
-    "/albums/{id}": {
+    "/api/albums/{id}": {
       "get": {
         "operationId": "AlbumsController_findOne",
         "parameters": [
@@ -256,7 +256,7 @@
         ]
       }
     },
-    "/artists": {
+    "/api/artists": {
       "post": {
         "operationId": "ArtistsController_create",
         "parameters": [],
@@ -316,7 +316,7 @@
         ]
       }
     },
-    "/artists/featured": {
+    "/api/artists/featured": {
       "get": {
         "operationId": "ArtistsController_findFeatured",
         "parameters": [],
@@ -341,7 +341,7 @@
         ]
       }
     },
-    "/artists/{id}": {
+    "/api/artists/{id}": {
       "get": {
         "operationId": "ArtistsController_findOne",
         "parameters": [
@@ -375,7 +375,7 @@
         ]
       }
     },
-    "/artists/{id}/songs": {
+    "/api/artists/{id}/songs": {
       "get": {
         "operationId": "ArtistsController_findSongs",
         "parameters": [
@@ -409,7 +409,7 @@
         ]
       }
     },
-    "/songs": {
+    "/api/songs": {
       "post": {
         "operationId": "SongsController_create",
         "parameters": [],
@@ -469,7 +469,7 @@
         ]
       }
     },
-    "/songs/featured": {
+    "/api/songs/featured": {
       "get": {
         "operationId": "SongsController_findFeatured",
         "parameters": [],
@@ -494,7 +494,7 @@
         ]
       }
     },
-    "/songs/search": {
+    "/api/songs/search": {
       "get": {
         "operationId": "SongsController_search",
         "parameters": [
@@ -525,7 +525,7 @@
         ]
       }
     },
-    "/songs/{id}": {
+    "/api/songs/{id}": {
       "get": {
         "operationId": "SongsController_findOne",
         "parameters": [
@@ -559,7 +559,7 @@
         ]
       }
     },
-    "/songs/{id}/like": {
+    "/api/songs/{id}/like": {
       "post": {
         "operationId": "SongsController_likeSong",
         "parameters": [
@@ -645,7 +645,7 @@
         ]
       }
     },
-    "/users/me/liked-songs": {
+    "/api/users/me/liked-songs": {
       "get": {
         "operationId": "LikedSongsController_getLikedSongs",
         "parameters": [],
