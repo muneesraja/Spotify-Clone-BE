@@ -1,5 +1,5 @@
 import { NestFactory } from '@nestjs/core';
-import { ValidationPipe } from '@nestjs/common';
+import { ValidationPipe, Logger } from '@nestjs/common';
 import { SwaggerModule, DocumentBuilder } from '@nestjs/swagger';
 import { AppModule } from './app.module';
 import { EntityExceptionFilter } from './common/filters/entity-not-found.filter';
@@ -7,8 +7,13 @@ import { writeFileSync } from 'fs';
 import { join } from 'path';
 import * as cookieParser from 'cookie-parser';
 
+const logger = new Logger('Spotify Clone Backend');
+
 async function bootstrap() {
-  const app = await NestFactory.create(AppModule);
+  const app = await NestFactory.create(AppModule, {
+    logger: ['error', 'warn', 'log', 'debug', 'verbose'], // Enable all log levels
+    bufferLogs: true, // Buffer logs until application is ready
+  });
   
   // Enable validation
   app.useGlobalPipes(
@@ -19,6 +24,11 @@ async function bootstrap() {
     }),
   );
   
+  // only if its in development mode
+  if (process.env.NODE_ENV === 'development') {
+    app.setGlobalPrefix('api');
+  }
+
   // Apply global filters
   app.useGlobalFilters(new EntityExceptionFilter());
 
@@ -26,7 +36,7 @@ async function bootstrap() {
   app.use(cookieParser());
   
   app.enableCors({
-    origin: ['http://localhost:3001', 'http://localhost:3000', 'http://127.0.0.1:3000', 'http://127.0.0.1:3001', 'https://spotify.mindlyq.com', 'https://spoty-back-end.mindlyq.com'],
+    origin: [process.env.NODE_ENV === 'development' ? 'http://localhost:3001' : 'https://spotify.mindlyq.com'],
     methods: ['GET', 'POST', 'PUT', 'DELETE', 'PATCH', 'OPTIONS'],
     allowedHeaders: [
       'Content-Type', 
@@ -60,6 +70,12 @@ async function bootstrap() {
   // Setup Swagger UI
   SwaggerModule.setup('api-docs', app, document);
   
-  await app.listen(process.env.PORT || 3000, '::');
+  const port = process.env.PORT || 3000;
+  await app.listen(port, '::');
+  
+  // Flush logs and log startup message
+  app.flushLogs();
+  logger.log(`Application is running on: http://localhost:${port}`);
+  logger.log(`Swagger documentation is available at: http://localhost:${port}/api-docs`);
 }
 bootstrap();
