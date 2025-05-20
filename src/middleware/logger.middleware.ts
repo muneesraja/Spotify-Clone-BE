@@ -46,8 +46,19 @@ export class LoggerMiddleware implements NestMiddleware {
 
       // Log response body for non-200 responses (excluding sensitive data)
       if (statusCode >= 400 && res.responseBody) {
-        const sanitizedResponse = this.sanitizeBody(res.responseBody);
-        this.logger.error(`Response Body: ${JSON.stringify(sanitizedResponse)}`);
+        let responseBody;
+        try {
+          // If responseBody is already an object, use it directly
+          responseBody = typeof res.responseBody === 'object' 
+            ? res.responseBody 
+            : JSON.parse(res.responseBody);
+        } catch (e) {
+          // If parsing fails, use the response body as is
+          responseBody = res.responseBody;
+        }
+        
+        const sanitizedResponse = this.sanitizeBody(responseBody);
+        this.logger.error(`Response Body: ${JSON.stringify(sanitizedResponse, null, 2)}`);
       }
     });
 
