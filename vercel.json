@@ -1,7 +1,5 @@
 {
   "version": 2,
-  "buildCommand": "nest build",
-  "outputDirectory": "dist",
   "builds": [
     {
       "src": "dist/main.js",
